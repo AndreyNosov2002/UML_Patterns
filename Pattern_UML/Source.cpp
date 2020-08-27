@@ -1,5 +1,6 @@
 #include<iostream>
 #include"FactoryMethod.h"
+#include"AbstractFactory.h"
 
 
 using namespace std;
@@ -9,38 +10,16 @@ using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "");
-/*Creator* creator = new TrackCreator;
-	Transport* track = creator->create();
-		track->delivery("IT STEP");
+	Car* car1 = new Car;
+	CarConfigurator* config = new CarConfigurator;
+	config->setConfiguration(new TruckCar);
+	config->configurate(car1);
+	car1->print();
+	cout << endl;
 
-		creator = new ShipCreator;
-		Transport* ship = creator->create();
-		ship->delivery("MorPort");*/
-
-
-
-	Transport* transport;
-	Creator* creator;
-	int n;
-	cout << "Type transport: 1-Track, 2-Ship, 3-Plane" << endl;
-	cin >> n;
-	switch (n)
-	{
-
-	case 1:
-		creator = new TrackCreator;
-		break;
-	case 2:
-		creator = new ShipCreator;
-		break;
-	case 3:
-		creator = new PlaneCreator;
-		break;
-	default:
-		creator = new TrackCreator;
-		break;
-	}
-	transport = creator->create();
-	transport->delivery("в деревню дедушке");
+	Car* car2 = new Car;
+	config->setConfiguration(new SportCar);
+	config->configurate(car2);
+	car2->print();
 	system("pause");
 }
