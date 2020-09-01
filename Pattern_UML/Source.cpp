@@ -1,25 +1,24 @@
 #include<iostream>
 #include"FactoryMethod.h"
 #include"AbstractFactory.h"
+#include"Singleton.h"
+#include"Prototype.h"
+#include"Decorator.h"
 
 
 using namespace std;
 
 
-
 int main()
 {
 	setlocale(LC_ALL, "");
-	Car* car1 = new Car;
-	CarConfigurator* config = new CarConfigurator;
-	config->setConfiguration(new TruckCar);
-	config->configurate(car1);
-	car1->print();
-	cout << endl;
+	Pizza* pizza1 = new ItalianPizza;
+	cout << pizza1->getname() << endl;
+	cout << "Цена: " << pizza1->getCoast() << endl;
 
-	Car* car2 = new Car;
-	config->setConfiguration(new SportCar);
-	config->configurate(car2);
-	car2->print();
+	pizza1 = new Tomato(pizza1);
+	pizza1 = new Cheese(pizza1);
+	cout << pizza1->getname() << endl;
+	cout << "Цена: " << pizza1->getCoast() << endl;
 	system("pause");
 }
