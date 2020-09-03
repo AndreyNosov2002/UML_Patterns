@@ -74,3 +74,15 @@ public:
 		return pizza->getCoast() + 10;
 	}
 };
+
+
+
+//////////////////////////////////////////////
+//Pizza* pizza1 = new ItalianPizza;
+//cout << pizza1->getname() << endl;
+//cout << "Цена: " << pizza1->getCoast() << endl;
+//
+//pizza1 = new Tomato(pizza1);
+//pizza1 = new Cheese(pizza1);
+//cout << pizza1->getname() << endl;
+//cout << "Цена: " << pizza1->getCoast() << endl;
