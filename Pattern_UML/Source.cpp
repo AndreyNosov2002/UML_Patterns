@@ -1,3 +1,4 @@
+
 #include<iostream>
 #include"FactoryMethod.h"
 #include"AbstractFactory.h"
@@ -11,6 +12,8 @@
 #include"ChainOfResponsibilty.h"
 #include"Command.h"
 #include"Mediator.h"
+//#include"Visitor.h"
+#include"TemplateMethod.h"
 
 using namespace std;
 
@@ -18,19 +21,13 @@ using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "");
-	ManagerMediator* manager = new ManagerMediator;
-	Colleague* customer = new CustomerCollegue(manager);
-	Colleague* programmer = new ProgrammerCollegue(manager);
-	Colleague* tester = new TesterCollegue(manager);
-	manager->customer = customer;
-	manager->programmer = programmer;
-	manager->tester = tester;
-
-	customer->send("Есть заказ, надо сделать программу");
-	programmer->send("Программа готова, нужно протестировать");
-	tester->send("Программа протестирована, готова к продаже");
+	HouseBuilder* house1 = new StandartHouse;
+	house1->buildHouse(4);
+	cout << house1->getResult() << endl;
 	
 
-
+	HouseBuilder* house2 = new SuperHouse;
+	house1->buildHouse(4);
+	cout << house1->getResult() << endl;
 	system("pause");
 }
